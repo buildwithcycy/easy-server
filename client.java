@@ -8,11 +8,16 @@ public class client {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		DatagramSocket clientSocket = new DatagramSocket();
 		InetAddress ip = InetAddress.getByName("localhost");
+		byte inData[] = new byte[1024];
 		byte outData[] = new byte[1024];
 		String data = input.readLine();
 		outData = data.getBytes();
 		DatagramPacket packet = new DatagramPacket(outData, outData.length, ip, 1234);
 		clientSocket.send(packet);
+		DatagramPacket packet2 = new DatagramPacket(inData, inData.length, ip, 1234);
+		clientSocket.receive(packet2);
+		String receiveData =new String(packet2.getData());
+		System.out.println(receiveData);
 		clientSocket.close();
 	}
 		/*
