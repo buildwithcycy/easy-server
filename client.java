@@ -1,16 +1,25 @@
 package cs327_lab4_udp_clientserver;
 import java.net.*;
+import java.util.*;
 import java.io.*;
 //UDP client 
 
 public class client {
 	public static void main(String args[]) throws Exception{
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Please Enter a Message to Send to Server?");
 		DatagramSocket clientSocket = new DatagramSocket();
 		InetAddress ip = InetAddress.getByName("localhost");
 		byte inData[] = new byte[1024];
 		byte outData[] = new byte[1024];
 		String data = input.readLine();
+		String message = new String("");
+		
+		
+
+		
+		
+				
 		outData = data.getBytes();
 		DatagramPacket packet = new DatagramPacket(outData, outData.length, ip, 1234);
 		clientSocket.send(packet);
