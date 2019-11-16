@@ -21,7 +21,8 @@ public class server {
 			int port = packet0.getPort();
 			String sendData = serverInput.readLine();
 			//to send data 
-			outData = sendData.getBytes();
+			//outData = sendData.getBytes();
+			outData = data.getBytes();
 			DatagramPacket packet1 = new DatagramPacket(outData, outData.length, ipAdd, port);
 			serverSocket.send(packet1);
 		}
